@@ -4,6 +4,13 @@ $Mask = "255.255.255.255"
 $ScriptDir = $PSScriptRoot
 $ConfigFile = Join-Path $ScriptDir "domains.conf"
 
+# Проверка параметра -p (постоянные маршруты)
+$Persistent = $false
+if ($args -contains '-p' -or $args -contains '/p') {
+    $Persistent = $true
+    Write-Host "Режим: Постоянные маршруты (-p)" -ForegroundColor Cyan
+}
+
 # Автоматическое определение индекса активного сетевого интерфейса
 $IfIndex = (Get-NetRoute -DestinationPrefix '0.0.0.0/0' | Where-Object { $_.NextHop -ne '0.0.0.0' }).ifIndex
 
@@ -27,11 +34,19 @@ foreach ($Domain in $Domains) {
     foreach ($IP in $IPs) {
         $ipStr = $IP.IPAddressToString
         route.exe delete $ipStr 2>$null
-        $result = route.exe add $ipStr mask $Mask $Gateway metric 1 if $IfIndex
+        
+        # Формируем команду с учетом параметра -p
+        if ($Persistent) {
+            $result = route.exe add -p $ipStr mask $Mask $Gateway metric 1 if $IfIndex
+        } else {
+            $result = route.exe add $ipStr mask $Mask $Gateway metric 1 if $IfIndex
+        }
+        
         if ($LASTEXITCODE -ne 0) {
             Write-Host "Ошибка добавления $ipStr : $result" -ForegroundColor Red
         } else {
-            Write-Host "Добавлен маршрут: $ipStr -> $Gateway (metric 1, if $IfIndex)" -ForegroundColor Green
+            $persistentText = if ($Persistent) { " (постоянный)" } else { "" }
+            Write-Host "Добавлен маршрут: $ipStr -> $Gateway (metric 1, if $IfIndex)$persistentText" -ForegroundColor Green
         }
     }
     Write-Host "Обработано: $Domain IP: $($IPs.IPAddressToString)"
