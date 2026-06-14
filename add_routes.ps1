@@ -2,7 +2,8 @@
 $Gateway = "192.168.3.1"
 $Mask = "255.255.255.255"
 $ScriptDir = $PSScriptRoot
-$ConfigFile = Join-Path $ScriptDir "domains.conf"
+# $ConfigFile = Join-Path $ScriptDir "domains.conf"
+$ConfigFile = Join-Path $ScriptDir "domains_ru.conf"
 
 # Проверка параметра -p (постоянные маршруты)
 $Persistent = $false
