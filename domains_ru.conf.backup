@@ -1,6 +1,9 @@
 # Российские домены для split-tunneling
 # Один домен на строку
 
+# Profi.ru
+profi.ru
+
 # Яндекс
 yandex.ru
 mail.yandex.ru
@@ -21,8 +24,8 @@ userapi.com
 # Сбербанк
 sberbank.ru
 online.sberbank.ru
-sberbank-online.ru
-sberpay.ru
+# НЕДОСТУПЕН: sberbank-online.ru
+# НЕДОСТУПЕН: sberpay.ru
 
 # Госуслуги
 gosuslugi.ru
@@ -43,8 +46,8 @@ seller.ozon.ru
 
 # Wildberries
 wildberries.ru
-basket-01.wildberries.ru
-basket-02.wildberries.ru
+# НЕДОСТУПЕН: basket-01.wildberries.ru
+# НЕДОСТУПЕН: basket-02.wildberries.ru
 
 # Avito
 avito.ru
@@ -72,7 +75,7 @@ hhcdn.ru
 
 # Дзен
 dzen.ru
-static.dzen.ru
+# НЕДОСТУПЕН: static.dzen.ru
 
 # OK.ru
 ok.ru
@@ -89,7 +92,7 @@ api.citilink.ru
 # DNS Shop
 dns-shop.ru
 api.dns-shop.ru
-cdn.dns-shop.ru
+# НЕДОСТУПЕН: cdn.dns-shop.ru
 
 # М.Видео
 mvideo.ru
@@ -104,18 +107,18 @@ passport.pochta.ru
 
 # РБК
 rbc.ru
-img.rbc.ru
+# НЕДОСТУПЕН: img.rbc.ru
 
 # Газета.ru
 gazeta.ru
 
 # Комсомольская правда
 kp.ru
-img.kp.ru
+# НЕДОСТУПЕН: img.kp.ru
 
 # Rutube
 rutube.ru
-player.rutube.ru
+# НЕДОСТУПЕН: player.rutube.ru
 
 # Пикабу
 pikabu.ru
@@ -159,6 +162,7 @@ beeline.ru
 
 # Ростелеком
 rt.ru
+job.rt.ru
 
 # РЖД
 rzd.ru
@@ -219,7 +223,7 @@ kion.ru
 sbermegamarket.ru
 
 # Leroy Merlin
-leroymerlin.ru
+# НЕДОСТУПЕН: leroymerlin.ru
 
 # Vseinstrumenti
 vseinstrumenti.ru
