@@ -34,7 +34,10 @@ foreach ($Domain in $Domains) {
 
     foreach ($IP in $IPs) {
         $ipStr = $IP.IPAddressToString
+        
+        # Удаляем оба типа маршрутов (временный и постоянный)
         route.exe delete $ipStr 2>$null
+        route.exe delete -p $ipStr 2>$null
         
         # Формируем команду с учетом параметра -p
         if ($Persistent) {

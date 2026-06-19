@@ -29,6 +29,11 @@ foreach ($Route in $Routes) {
     if ($RouteLine -match '^\s*(\d+\.\d+\.\d+\.\d+)\s+') {
         $IP = $Matches[1]
         
+        # Пропускаем маршрут по умолчанию
+        if ($IP -eq "0.0.0.0") {
+            continue
+        }
+        
         $Deleted = $false
         
         # Удаляем маршрут в зависимости от режима
